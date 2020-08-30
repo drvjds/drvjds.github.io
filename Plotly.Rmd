@@ -1,0 +1,31 @@
+---
+title: "Motor Trade"
+author: "Vipul Jha"
+date: "15 August 2020"
+output: ioslides_presentation
+---
+## Overview
+
+Create a web page presentation using R Markdown that features a plot created with Plotly. Host your webpage on either GitHub Pages, RPubs, or NeoCities. Your webpage must contain the date that you created the document, and it must contain a plot created with Plotly. 
+
+I am using the pre-installed 'mtcars' dataset to create a 3-D Scatter plot and a Bar plot using Plotly.
+
+## 3-D Scatter Plot
+
+```{r}
+# Loading the required packages and dataset
+
+library(ggplot2)
+library(plotly)
+data("mtcars")
+
+plot_ly(x = mtcars$wt, y = mtcars$mpg, z = mtcars$hp, type="scatter3d", mode = "markers", color = mtcars$wt)
+```
+
+## Bar plot
+
+```{r}
+plot_ly(x = mtcars$mpg, y = mtcars$hp, type="bar") %>%
+  layout(xaxis = list(title = "Miles per gallon"),
+         yaxis = list(title = "Horsepower"))
+```
